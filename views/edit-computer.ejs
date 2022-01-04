@@ -19,7 +19,8 @@
             <option <%= computer.direction === 'ODC' ? 'selected' : '' %> value="ODC">ODC</option>
             <option <%= computer.direction === 'DEC' ? 'selected' : '' %> value="DEC">DEC</option>
             <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DMC">DMC</option>
-            <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DMC">DRH</option>
+            <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DRH">DRH</option>
+            <option <%= computer.direction === 'DRI' ? 'selected' : '' %> value="DRI">DRI</option>
         </select>
         <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="site"  placeholder="Site" value="<%= computer.site %>">
         <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="hostname"  placeholder="Hostname" value="<%= computer.hostname %>">
