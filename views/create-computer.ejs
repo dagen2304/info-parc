@@ -11,9 +11,17 @@
                 <label for="username">CUID</label>
                 <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="cuid"  placeholder="CUID">
             </div>
+<!--            <div class="flex flex-col">-->
+<!--                <label for="username">Status</label>-->
+<!--                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="status" placeholder="Status">-->
+<!--            </div>-->
             <div class="flex flex-col">
-                <label for="username">Status</label>
-                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="status" placeholder="Status">
+                <label for="status">Status</label>
+                <select name="status" id="status" class="border my-2 px-2 py-2 rounded text-sm">
+                    <!--                    <option selected disabled>Ecran</option>-->
+                    <option value="INT">Interne</option>
+                    <option value="EXT">Externe</option>
+                </select>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-2 w-full">
@@ -137,10 +145,10 @@
                 </select>
             </div>
 
-            <div class="flex flex-col">
-                <label for="anneeAttr">Année d'attribution</label>
-                <input type="text" id="anneeAttr" name="anneeAttr" class="border my-2 px-2 py-2 rounded"  placeholder="Année attribution">
-            </div>
+        </div>
+        <div class="flex flex-col">
+            <label for="anneeAttr">Année d'attribution</label>
+            <input type="text" id="anneeAttr" name="anneeAttr" class="border my-2 px-2 py-2 rounded"  placeholder="Année attribution">
         </div>
         <div class="col-span-2 pt-5 text-right pb-3">
             <button class="text-sm bg-red-400 text-white px-3 py-1 rounded shadow-lg mr-1">Cancel</button>
