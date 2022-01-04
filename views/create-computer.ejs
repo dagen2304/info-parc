@@ -1,0 +1,81 @@
+<div class="h-full flex p-12">
+    <!--        <form action="" class="md:max-w-screen-md mx-auto border rounded grid md:grid-cols-2 w-full gap-x-4 shadow-xl py-3 px-8">-->
+    <form method="post" action="/save-computer">
+        <h2 class="col-span-2 text-2xl mb-3 mt-2">Add Computer </h2>
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="username" placeholder="Username">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="cuid"  placeholder="CUID">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="status" placeholder="Status">
+        <select name="direction" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Direction</option>
+            <option value="DD">DD</option>
+            <option value="DAF">DAF</option>
+            <option value="DRS">DRS</option>
+            <option value="DAIMG">DAIMG</option>
+            <option value="DRAP">DRAP</option>
+            <option value="DOB">DOB</option>
+            <option value="DOM">DOM</option>
+            <option value="SG">SG</option>
+            <option value="FO">FO</option>
+            <option value="ODC">ODC</option>
+            <option value="DEC">DEC</option>
+            <option value="DMC">DMC</option>
+            <option value="DMC">DRH</option>
+        </select>
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="site"  placeholder="Site">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="hostname"  placeholder="Hostname">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="serialNumber"  placeholder="Serial number">
+        <select name="osVersion" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Version OS</option>
+            <option value="MAC">MAC</option>
+            <option value="WIN10">WIN 10</option>
+            <option value="WIN7">WIN 7</option>
+        </select>
+        <select name="type" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Type</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Desktop">Desktop</option>
+        </select>
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="model"  placeholder="Modele">
+
+        <select name="sac" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Sac</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+        <select name="souris" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Souris</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+        <select name="ecran" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Ecran</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+        <select name="imprimente" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Imprimente</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+        <select name="token" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Token</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+        <select name="cableSecure" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Cable securite</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+        <select name="filtreSecure" class="border my-2 px-2 py-2 rounded text-sm">
+            <option selected disabled>Filtre confidentialité</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+        <input type="text" id="anneeAttr" name="anneeAttr" class="border my-2 px-2 py-2 rounded"  placeholder="Année attribution">
+        <div class="col-span-2 pt-5 text-right pb-3">
+            <button class="text-sm bg-red-400 text-white px-3 py-1 rounded shadow-lg mr-1">Cancel</button>
+            <button class="text-sm bg-green-400 text-white px-3 py-1 rounded shadow-lg">Save</button>
+        </div>
+    </form>
+</div>

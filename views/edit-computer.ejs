@@ -1,0 +1,72 @@
+<div class="h-full flex p-12">
+    <!--        <form action="" class="md:max-w-screen-md mx-auto border rounded grid md:grid-cols-2 w-full gap-x-4 shadow-xl py-3 px-8">-->
+    <form method="post" action="/update-computer">
+        <h2 class="col-span-2 text-2xl mb-3 mt-2">Add Computer </h2>
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" hidden name="id" placeholder="Username" value="<%= computer._id %>">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="username" placeholder="Username" value="<%= computer.username %>">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="cuid"  placeholder="CUID" value="<%= computer.cuid %>">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="status" placeholder="Status" value="<%= computer.status %>">
+        <select name="direction" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.direction === 'DD' ? 'selected' : '' %> value="DD">DD</option>
+            <option <%= computer.direction === 'DAF' ? 'selected' : '' %> value="DAF">DAF</option>
+            <option <%= computer.direction === 'DRS' ? 'selected' : '' %> value="DRS">DRS</option>
+            <option <%= computer.direction === 'DAIMG' ? 'selected' : '' %> value="DAIMG">DAIMG</option>
+            <option <%= computer.direction === 'DRAP' ? 'selected' : '' %> value="DRAP">DRAP</option>
+            <option <%= computer.direction === 'DOB' ? 'selected' : '' %> value="DOB">DOB</option>
+            <option <%= computer.direction === 'DOM' ? 'selected' : '' %> value="DOM">DOM</option>
+            <option <%= computer.direction === 'SG' ? 'selected' : '' %> value="SG">SG</option>
+            <option <%= computer.direction === 'FO' ? 'selected' : '' %> value="FO">FO</option>
+            <option <%= computer.direction === 'ODC' ? 'selected' : '' %> value="ODC">ODC</option>
+            <option <%= computer.direction === 'DEC' ? 'selected' : '' %> value="DEC">DEC</option>
+            <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DMC">DMC</option>
+            <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DMC">DRH</option>
+        </select>
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="site"  placeholder="Site" value="<%= computer.site %>">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="hostname"  placeholder="Hostname" value="<%= computer.hostname %>">
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="serialNumber"  placeholder="Serial number" value="<%= computer.serialNumber %>">
+        <select name="osVersion" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.osVersion === 'MAC' ? 'selected' : '' %> value="MAC">MAC</option>
+            <option <%= computer.osVersion === 'WIN10' ? 'selected' : '' %> value="WIN10">WIN 10</option>
+            <option <%= computer.osVersion === 'WIN7' ? 'selected' : '' %> value="WIN7">WIN 7</option>
+        </select>
+        <select name="type" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.type === 'Laptop' ? 'selected' : '' %> value="Laptop">Laptop</option>
+            <option <%= computer.type === 'Desktop' ? 'selected' : '' %> value="Desktop">Desktop</option>
+        </select>
+        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="model"  placeholder="Modele" value="<%= computer.model %>">
+
+        <select name="sac" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.sac === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+            <option <%= computer.sac === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+        </select>
+        <select name="souris" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.souris === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+            <option <%= computer.souris === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+        </select>
+        <select name="ecran" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.ecran === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+            <option <%= computer.ecran === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+        </select>
+        <select name="imprimente" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.imprimente === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+            <option <%= computer.imprimente === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+        </select>
+        <select name="token" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.token === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+            <option <%= computer.token === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+        </select>
+        <select name="cableSecure" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.cableSecure === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+            <option <%= computer.cableSecure === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+        </select>
+        <select name="filtreSecure" class="border my-2 px-2 py-2 rounded text-sm">
+            <option <%= computer.filtreSecure === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+            <option <%= computer.filtreSecure === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+        </select>
+        <input type="text" id="anneeAttr" name="anneeAttr" class="border my-2 px-2 py-2 rounded"  placeholder="Année attribution" value="<%= computer.anneeAttr?.toLocaleDateString("en-US" , {year: 'numeric'}) %>">
+        <div class="col-span-2 pt-5 text-right pb-3">
+            <button class="text-sm bg-red-400 text-white px-3 py-1 rounded shadow-lg mr-1">Cancel</button>
+            <button class="text-sm bg-green-400 text-white px-3 py-1 rounded shadow-lg">Save</button>
+        </div>
+    </form>
+</div>
