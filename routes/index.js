@@ -44,7 +44,7 @@ router.post('/export', async (req, res, next) => {
 
 router.post('/save-computer', async (req, res, next) => {
 
- const oldComputer = await computerModel.findOne({$or: [ {username: req.body.username} , {hostname:req.body.hostname}]})
+ const oldComputer = await computerModel.findOne({$or: [ {serialNumber: req.body.serialNumber} , {hostname:req.body.hostname}]})
 
  if (oldComputer) {
      req.flash('type',"error");
