@@ -1,70 +1,133 @@
-<div class="h-full flex p-12">
+<div class="h-full flex lg:p-12">
     <!--        <form action="" class="md:max-w-screen-md mx-auto border rounded grid md:grid-cols-2 w-full gap-x-4 shadow-xl py-3 px-8">-->
-    <form method="post" action="/update-computer">
-        <h2 class="col-span-2 text-2xl mb-3 mt-2">Add Computer </h2>
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" hidden name="id" placeholder="Username" value="<%= computer._id %>">
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="username" placeholder="Username" value="<%= computer.username %>">
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="cuid"  placeholder="CUID" value="<%= computer.cuid %>">
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="status" placeholder="Status" value="<%= computer.status %>">
-        <select name="direction" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.direction === 'DD' ? 'selected' : '' %> value="DD">DD</option>
-            <option <%= computer.direction === 'DAF' ? 'selected' : '' %> value="DAF">DAF</option>
-            <option <%= computer.direction === 'DRS' ? 'selected' : '' %> value="DRS">DRS</option>
-            <option <%= computer.direction === 'DAIMG' ? 'selected' : '' %> value="DAIMG">DAIMG</option>
-            <option <%= computer.direction === 'DRAP' ? 'selected' : '' %> value="DRAP">DRAP</option>
-            <option <%= computer.direction === 'DOB' ? 'selected' : '' %> value="DOB">DOB</option>
-            <option <%= computer.direction === 'DOM' ? 'selected' : '' %> value="DOM">DOM</option>
-            <option <%= computer.direction === 'SG' ? 'selected' : '' %> value="SG">SG</option>
-            <option <%= computer.direction === 'FO' ? 'selected' : '' %> value="FO">FO</option>
-            <option <%= computer.direction === 'ODC' ? 'selected' : '' %> value="ODC">ODC</option>
-            <option <%= computer.direction === 'DEC' ? 'selected' : '' %> value="DEC">DEC</option>
-            <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DMC">DMC</option>
-            <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DRH">DRH</option>
-            <option <%= computer.direction === 'DRI' ? 'selected' : '' %> value="DRI">DRI</option>
-        </select>
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="site"  placeholder="Site" value="<%= computer.site %>">
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="hostname"  placeholder="Hostname" value="<%= computer.hostname %>">
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="serialNumber"  placeholder="Serial number" value="<%= computer.serialNumber %>">
-        <select name="osVersion" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.osVersion === 'MAC' ? 'selected' : '' %> value="MAC">MAC</option>
-            <option <%= computer.osVersion === 'WIN10' ? 'selected' : '' %> value="WIN10">WIN 10</option>
-            <option <%= computer.osVersion === 'WIN7' ? 'selected' : '' %> value="WIN7">WIN 7</option>
-        </select>
-        <select name="type" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.type === 'Laptop' ? 'selected' : '' %> value="Laptop">Laptop</option>
-            <option <%= computer.type === 'Desktop' ? 'selected' : '' %> value="Desktop">Desktop</option>
-        </select>
-        <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="model"  placeholder="Modele" value="<%= computer.model %>">
+    <form method="post" action="/save-computer" class="w-full">
+        <h2 class="col-span-2 text-2xl mb-3 mt-8">Add Computer </h2>
+        <div class="">
+            <input type="text" class="border my-2 px-2 py-2 rounded text-sm" hidden name="id" placeholder="Username" value="<%= computer._id %>">
+            <div class="flex flex-col">
+                <label for="username">Username</label>
+                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" id="username" name="username" placeholder="Username" value="<%= computer.username %>">
+            </div>
+            <div class="flex flex-col">
+                <label for="cuid">CUID</label>
+                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="cuid" id="cuid"  placeholder="CUID" value="<%= computer.cuid %>">
+            </div>
+            <div class="flex flex-col">
+                <label for="status">Status</label>
+                <select name="status" id="status" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.status === 'INT' ? 'selected' : '' %> value="INT">Interne</option>
+                    <option <%= computer.status === 'EXT' ? 'selected' : '' %> value="EXT">Externe</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2 w-full">
+            <div class="flex flex-col">
+                <label for="username">Direction</label>
+                <select name="direction" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.direction === 'DD' ? 'selected' : '' %> value="DD">DD</option>
+                    <option <%= computer.direction === 'DAF' ? 'selected' : '' %> value="DAF">DAF</option>
+                    <option <%= computer.direction === 'DRS' ? 'selected' : '' %> value="DRS">DRS</option>
+                    <option <%= computer.direction === 'DAIMG' ? 'selected' : '' %> value="DAIMG">DAIMG</option>
+                    <option <%= computer.direction === 'DRAP' ? 'selected' : '' %> value="DRAP">DRAP</option>
+                    <option <%= computer.direction === 'DOB' ? 'selected' : '' %> value="DOB">DOB</option>
+                    <option <%= computer.direction === 'DOM' ? 'selected' : '' %> value="DOM">DOM</option>
+                    <option <%= computer.direction === 'SG' ? 'selected' : '' %> value="SG">SG</option>
+                    <option <%= computer.direction === 'FO' ? 'selected' : '' %> value="FO">FO</option>
+                    <option <%= computer.direction === 'ODC' ? 'selected' : '' %> value="ODC">ODC</option>
+                    <option <%= computer.direction === 'DEC' ? 'selected' : '' %> value="DEC">DEC</option>
+                    <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DMC">DMC</option>
+                    <option <%= computer.direction === 'DMC' ? 'selected' : '' %> value="DRH">DRH</option>
+                    <option <%= computer.direction === 'DRI' ? 'selected' : '' %> value="DRI">DRI</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="site">Site</label>
+                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="site" id="site"  placeholder="Site" value="<%= computer.site %>">
+            </div>
+            <div class="flex flex-col">
+                <label for="hostname">Hostname</label>
+                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="hostname" id="hostname"  placeholder="Hostname" value="<%= computer.hostname %>">
+            </div>
+            <div class="flex flex-col">
+                <label for="serialNumber">Serial number</label>
+                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="serialNumber" id="serialNumber"  placeholder="Serial number" value="<%= computer.serialNumber %>">
+            </div>
+            <div class="flex flex-col">
+                <label for="osVersion">Version OS</label>
+                <select name="osVersion" id="osVersion" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.osVersion === 'MAC' ? 'selected' : '' %> value="MAC">MAC</option>
+                    <option <%= computer.osVersion === 'WIN10' ? 'selected' : '' %> value="WIN10">WIN 10</option>
+                    <option <%= computer.osVersion === 'WIN7' ? 'selected' : '' %> value="WIN7">WIN 7</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="type">Type</label>
+                <select name="type" id="type" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.type === 'Laptop' ? 'selected' : '' %> value="Laptop">Laptop</option>
+                    <option <%= computer.type === 'Desktop' ? 'selected' : '' %> value="Desktop">Desktop</option>
+                </select>
+            </div>
 
-        <select name="sac" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.sac === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
-            <option <%= computer.sac === 'Non' ? 'selected' : '' %> value="Non">Non</option>
-        </select>
-        <select name="souris" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.souris === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
-            <option <%= computer.souris === 'Non' ? 'selected' : '' %> value="Non">Non</option>
-        </select>
-        <select name="ecran" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.ecran === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
-            <option <%= computer.ecran === 'Non' ? 'selected' : '' %> value="Non">Non</option>
-        </select>
-        <select name="imprimente" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.imprimente === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
-            <option <%= computer.imprimente === 'Non' ? 'selected' : '' %> value="Non">Non</option>
-        </select>
-        <select name="token" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.token === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
-            <option <%= computer.token === 'Non' ? 'selected' : '' %> value="Non">Non</option>
-        </select>
-        <select name="cableSecure" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.cableSecure === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
-            <option <%= computer.cableSecure === 'Non' ? 'selected' : '' %> value="Non">Non</option>
-        </select>
-        <select name="filtreSecure" class="border my-2 px-2 py-2 rounded text-sm">
-            <option <%= computer.filtreSecure === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
-            <option <%= computer.filtreSecure === 'Non' ? 'selected' : '' %> value="Non">Non</option>
-        </select>
-        <input type="text" id="anneeAttr" name="anneeAttr" class="border my-2 px-2 py-2 rounded"  placeholder="Année attribution" value="<%= computer.anneeAttr?.toLocaleDateString("en-US" , {year: 'numeric'}) %>">
+            <div class="flex flex-col">
+                <label for="model">Modele</label>
+                <input type="text" class="border my-2 px-2 py-2 rounded text-sm" name="model" id="model"  placeholder="Modele" value="<%= computer.model %>">
+            </div>
+            <div class="flex flex-col">
+                <label for="sac">A un Sac?</label>
+                <select name="sac" id="sac" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.sac === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+                    <option <%= computer.sac === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="souris">A une Souris?</label>
+                <select name="souris" id="souris" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.souris === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+                    <option <%= computer.souris === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="ecran">A une Ecran?</label>
+                <select name="ecran" id="ecran" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.ecran === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+                    <option <%= computer.ecran === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="imprimente">A une Imprimente?</label>
+                <select name="imprimente" id="imprimente" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.imprimente === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+                    <option <%= computer.imprimente === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="token">A un Token?</label>
+                <select name="token" id="token" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.token === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+                    <option <%= computer.token === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="cableSecure">A un Cable de securite?</label>
+                <select name="cableSecure" id="cableSecure" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.cableSecure === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+                    <option <%= computer.cableSecure === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="filtreSecure">A un Filtre?</label>
+                <select name="filtreSecure" id="filtreSecure" class="border my-2 px-2 py-2 rounded text-sm">
+                    <option <%= computer.filtreSecure === 'Oui' ? 'selected' : '' %> value="Oui">Oui</option>
+                    <option <%= computer.filtreSecure === 'Non' ? 'selected' : '' %> value="Non">Non</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="flex flex-col">
+            <label for="anneeAttr">Année d'attribution</label>
+            <input type="number" id="anneeAttr" name="anneeAttr" class="border my-2 px-2 py-2 rounded"  placeholder="Année attribution" value="<%= computer.anneeAttr %>">
+        </div>
         <div class="col-span-2 pt-5 text-right pb-3">
             <button class="text-sm bg-red-400 text-white px-3 py-1 rounded shadow-lg mr-1">Cancel</button>
             <button class="text-sm bg-green-400 text-white px-3 py-1 rounded shadow-lg">Save</button>
