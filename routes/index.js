@@ -43,18 +43,23 @@ router.post('/export', async (req, res, next) => {
 router.post('/save-computer', async (req, res, next) => {
 
  const oldComputer = await computerModel.findOne({hostname:req.body.hostname})
- const oldComputer1 = await computerModel.findOne({serialNumber: req.body.serialNumber})
+
+if (req.body.serialNumber) {
+    const oldComputer1 = await computerModel.findOne({serialNumber: req.body.serialNumber})
+
+    if(oldComputer1) {
+        req.flash('type',"error");
+        req.flash('message',"L'ordinateur " + oldComputer.serialNumber + " existe déjà!");
+        res.redirect("/create")
+    }
+
+}
 
  if (oldComputer) {
      req.flash('type',"error");
      req.flash('message',"L'ordinateur " + oldComputer.hostname + " existe déjà!");
      res.redirect("/create")
- } else if(oldComputer1) {
-     req.flash('type',"error");
-     req.flash('message',"L'ordinateur " + oldComputer.serialNumber + " existe déjà!");
-     res.redirect("/create")
- }
- else {
+ } else {
       const computer = new computerModel(req.body)
       computer
           .save()
