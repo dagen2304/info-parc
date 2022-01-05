@@ -63,7 +63,7 @@ const computerSchema = new Schema({
         type:  String
     },
     anneeAttr: {
-        type: Date
+        type: String
     },
 },{
     timestamps: true
