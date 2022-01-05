@@ -88,6 +88,7 @@ router.get('/:id/edit', function(req, res, next) {
 
     computerModel.findOne({_id: id})
         .then( computer => {
+            console.log('error render')
             res.render('edit-computer', { title: 'Edit computer' , computer: computer  });
         })
         .catch(err => {
