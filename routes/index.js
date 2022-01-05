@@ -4,9 +4,7 @@ const computerModel = require('../model/Computer')
 const XLSX = require('xlsx')
 /* GET home page. */
 router.get('/', async (req, res, next) =>  {
-
     const computers = await computerModel.find()
-
     res.render('index', { title: 'Parc Info' , computers: computers });
 });
 
@@ -56,7 +54,7 @@ router.post('/save-computer', async (req, res, next) => {
           .save()
           .then(computer => {
               req.flash('type',"success");
-              req.flash('message',"L'ordinateur " + oldComputer.hostname + " a été ajouter avec succès!");
+              req.flash('message',"L'ordinateur " + computer.hostname + " a été ajouter avec succès!");
               res.redirect("/")
           })
           .catch(err => {

@@ -47,7 +47,7 @@
                         <td class="px-6 py-4 whitespace-nowrap"><%= computer.token %></td>
                         <td class="px-6 py-4 whitespace-nowrap"><%= computer.cableSecure %></td>
                         <td class="px-6 py-4 whitespace-nowrap"><%= computer.filtreSecure %></td>
-                        <td class="px-6 py-4 whitespace-nowrap"><%= computer.anneeAttr?.toLocaleDateString("en-US" , {year: 'numeric'}) %></td>
+                        <td class="px-6 py-4 whitespace-nowrap"><%= computer.anneeAttr %></td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <a class="text-sm bg-red-400 text-white px-3 py-1 rounded shadow-lg" href="/<%=computer._id %>/delete">Supprimer</a>
                             <a class="text-sm bg-green-400 text-white px-3 py-1 rounded shadow-lg"  href="/<%=computer._id %>/edit">Modifier</a>
