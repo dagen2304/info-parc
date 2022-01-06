@@ -2,6 +2,18 @@
     $(document).ready(function () {
         $('#dataTable').DataTable();
 
+        $('#type').change(function (e) {
+            const type = $(this).val()
+            if (type === 'Desktop') {
+                $('#sac').val('Non')
+                $('#cableSecure').val('Non')
+                $('#filtreSecure').val('Non')
+            } else {
+                $('#sac').val('Oui')
+                $('#cableSecure').val('Oui')
+                $('#filtreSecure').val('Oui')
+            }
+        })
     });
 </script>
 <script>
