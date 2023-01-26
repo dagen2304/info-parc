@@ -25,8 +25,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride());
-app.use(session({ resave: true, saveUninitialized: true,
-  secret: 'uwotm8' }));
+// creating 24 hours from milliseconds
+const oneDay = 1000 * 60 * 60 * 24;
+
+//session middleware
+app.use(session({
+  secret: process.env.APP_KEY ||'uwotm8' ,
+  saveUninitialized:true,
+  cookie: { maxAge: oneDay },
+  resave: false
+}));
 
 app.use(flash())
 app.use(express.static(path.join(__dirname, 'public')));
